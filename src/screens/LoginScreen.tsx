@@ -5,7 +5,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   TextInput,
-  Image,
   Dimensions,
   KeyboardAvoidingView,
   Platform,
@@ -26,9 +25,6 @@ export default function LoginScreen({ navigation }: Props) {
   const [rememberMe, setRememberMe] = useState(false);
 
   const handleLogin = () => {
-    console.log('Telefon Numarası:', phoneNumber);
-    console.log('Şifre:', password);
-    console.log('Beni Hatırla:', rememberMe);
     navigation.replace('MainTabs');
   };
 
@@ -43,23 +39,14 @@ export default function LoginScreen({ navigation }: Props) {
       >
         <View style={styles.topCurvedBackground} />
         <View style={styles.topRightCircle} />
-
-        <View style={styles.logoContainer}>
-          <Image
-            source={{
-              uri: 'https://placehold.co/200x80/ffffff/000?text=Metropol+Pos',
-            }}
-            style={styles.logo}
-            resizeMode="contain"
-          />
-        </View>
+        <Text style={styles.loginText}>Metropol CepPOS</Text>
 
         <View style={styles.formContainer}>
           <View style={styles.inputWrapper}>
             <TextInput
               style={styles.input}
               placeholder="Telefon Numaranız"
-              placeholderTextColor="#999"
+              placeholderTextColor="#999999"
               keyboardType="phone-pad"
               value={phoneNumber}
               onChangeText={setPhoneNumber}
@@ -84,7 +71,7 @@ export default function LoginScreen({ navigation }: Props) {
             <Ionicons
               name="lock-closed-outline"
               size={20}
-              color="#888"
+              color="#888888"
               style={styles.inputIcon}
             />
           </View>
@@ -171,16 +158,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFCCCC',
     opacity: 0.8,
   },
-  logoContainer: {
-    marginTop: height * 0.08,
-    marginBottom: height * 0.05,
-    alignItems: 'center',
-    zIndex: 1,
-  },
-  logo: {
-    width: width * 0.6,
-    height: height * 0.1,
-    resizeMode: 'contain',
+  loginText: {
+    color: 'blue',
+    marginTop: 150,
   },
   formContainer: {
     width: '85%',
@@ -193,7 +173,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 8,
     elevation: 8,
-    marginBottom: 30,
+    marginTop: 75,
   },
   inputWrapper: {
     flexDirection: 'row',
@@ -224,7 +204,7 @@ const styles = StyleSheet.create({
   },
   rememberMeText: {
     fontSize: 15,
-    color: '#555',
+    color: '#555555',
   },
   loginButton: {
     backgroundColor: '#FF0000',
@@ -232,7 +212,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
     borderRadius: 10,
     elevation: 5,
-    shadowColor: '#000',
+    shadowColor: '#000000',
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.3,
     shadowRadius: 5,
@@ -274,7 +254,7 @@ const styles = StyleSheet.create({
   },
   versionText: {
     fontSize: 14,
-    color: '#999',
+    color: '#999999',
     position: 'absolute',
     bottom: 20,
     alignSelf: 'center',
